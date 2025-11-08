@@ -1,71 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Providence RP Loading Screen</title>
-    <link rel="stylesheet" href="./css/stylesheet.css">
-    <style>
-        /* Optionnel : petit correctif visuel */
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        #background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            transition: background-image 1s ease-in-out;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Test Providence RP</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #222, #555);
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-size: 2rem;
+    }
+  </style>
 </head>
-<body class="loaded">
-    <div id="background"></div>
-    <audio src="./content/audio.mp3" loop autoplay></audio>
-
-<script>
-    console.log('JavaScript chargé');
-
-    // ✅ Corrigé : chemins d’images relatifs valides pour GitHub Pages
-    const images = [
-        './content/img/1.jpg',
-        './content/img/2.jpg',
-        './content/img/3.jpg'
-    ];
-
-    let currentIndex = 0;
-
-    function preloadImages() {
-        images.forEach(src => {
-            const img = new Image();
-            img.src = src;
-        });
-    }
-
-    function changeBackgroundImage() {
-        console.log('Changement d\'image');
-        currentIndex = (currentIndex + 1) % images.length;
-        document.getElementById('background').style.backgroundImage = `url(${images[currentIndex]})`;
-    }
-
-    window.addEventListener('load', () => {
-        preloadImages();
-        // Définit la première image
-        document.getElementById('background').style.backgroundImage = `url(${images[currentIndex]})`;
-        // Change toutes les 10 secondes
-        setInterval(changeBackgroundImage, 10000);
-    });
-</script>
-
+<body>
+  ✅ Le site est bien en ligne sur GitHub Pages !
 </body>
 </html>
-<!-- redeploy 2 -->
-
-
-
