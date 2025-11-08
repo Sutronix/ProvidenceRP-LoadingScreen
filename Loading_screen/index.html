@@ -1,20 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <title>Providence RP Loading Screen</title>
     <link rel="stylesheet" href="./css/stylesheet.css">
+    <style>
+        /* Optionnel : petit correctif visuel */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+        }
+    </style>
 </head>
 <body class="loaded">
     <div id="background"></div>
-    <audio src="./content/audio.mp3" loop="false" autoplay="false"></audio>
+    <audio src="./content/audio.mp3" loop autoplay></audio>
 
 <script>
     console.log('JavaScript chargé');
 
-    // Liste des images de fond
+    // ✅ Corrigé : chemins d’images relatifs valides pour GitHub Pages
     const images = [
-        '../content/img/1.jpg',
-        '../content/img/2.jpg',
-        '../content/img/3.jpg'
+        './content/img/1.jpg',
+        './content/img/2.jpg',
+        './content/img/3.jpg'
     ];
 
     let currentIndex = 0;
@@ -34,6 +56,9 @@
 
     window.addEventListener('load', () => {
         preloadImages();
+        // Définit la première image
+        document.getElementById('background').style.backgroundImage = `url(${images[currentIndex]})`;
+        // Change toutes les 10 secondes
         setInterval(changeBackgroundImage, 10000);
     });
 </script>
