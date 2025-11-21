@@ -5,7 +5,8 @@
 </head>
 <body class="loaded">
     <div id="background"></div>
-    <audio src="./content/audio.mp3" loop="false" autoplay="false"></audio>
+
+    <!-- Loader -->
     <div id="loader">
         <span></span>
         <span></span>
@@ -14,19 +15,19 @@
         <span></span>
         <span></span>
     </div>
+
     <footer>
-        <div class="flexboxmus">
-            <li><img class="icon" src="./content/icon/iconsong.png"><h2 class="textmusique">Musique : (Nom de la musique)</h2></li>
-        </div>
+        <!-- Musique supprimée -->
     </footer>
+
 <script>
     console.log('JavaScript chargé');
 
     // Liste des images de fond
     const images = [
-        '../content/img/1.jpg',
-        '../content/img/2.jpg',
-        '../content/img/3.jpg'
+        './content/img/1.jpg',
+        './content/img/2.jpg',
+        './content/img/3.jpg'
     ];
 
     let currentIndex = 0;
@@ -40,15 +41,16 @@
 
     function changeBackgroundImage() {
         console.log('Changement d\'image');
-        currentIndex = (currentIndex + 1) % images.length; // Change l'index de l'image
+        currentIndex = (currentIndex + 1) % images.length; 
         document.getElementById('background').style.backgroundImage = `url(${images[currentIndex]})`;
     }
 
     window.addEventListener('load', () => {
-        preloadImages(); // Précharge les images
-        setInterval(changeBackgroundImage, 10000); // Change l'image toutes les 10 secondes
+        preloadImages(); 
+        setInterval(changeBackgroundImage, 10000);
     });
 </script>
 
 </body>
 </html>
+
